@@ -1,0 +1,132 @@
+html {
+  /* font-size: 62.5% -> 1rem = 10px */
+  font-size: 62.5%;
+}
+body {
+  position: relative;
+  margin: 0;
+}
+.wrapper {
+  font-size: 1.6rem;
+  font-family: "lato", sans-serif;
+  color: #56585a;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+h1 {
+  font-size: 5.6rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3,
+h4 {
+  font-size: 1.4rem;
+}
+
+h5,
+h6 {
+  font-size: 1.3rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: normal;
+}
+
+a {
+  color: #56585a;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  color: #0aa8a7;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0.4rem;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+li {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.28rem;
+}
+
+li:before {
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  content: "";
+  background: #0aa8a7;
+}
+
+header,
+main,
+footer {
+  width: 100%;
+}
+
+/*  For PC 1025px<=device<=1280px ************/
+@media screen and (max-width: 1280px) {
+  main {
+    margin-top: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
+}
+
+/*  For TB 601px<=device<=1024px ************/
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+
+/*  For SP 375px<=device<=600px ************/
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 1.2rem;
+  }
+  h1,
+  h2 {
+    font-size: 1.4rem;
+  }
+  main {
+    padding: 0 0.8rem;
+  }
+}
+
+/*  For SP device<=375px ************/
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,372 @@
+/* Base Header Area ************/
+.headerWrap {
+  position: relative;
+  width: 82%;
+  height: 14.4rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1rem;
+  margin-bottom: 3.2rem;
+}
+.headerFirstWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.headerLogoWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.8rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  justify-content: flex-start;
+  margin-top: 0;
+  height: 100%;
+  width: auto;
+}
+
+.siteLogo {
+  height: 100%;
+}
+
+.pageTitleWrap {
+  padding-left: 2.4rem;
+  font-weight: bold;
+}
+
+.pageTitle1 {
+  font-weight: bold;
+  font-size: 3.6rem;
+}
+
+.headerSecondWrap {
+  width: 100%;
+  height: 3.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.headerNav {
+  margin-right: 1.6rem;
+}
+
+.headerNavList {
+  height: 100%;
+  width: 39.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+}
+
+.headerNavItem {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+}
+.headerNavItem:before {
+  display: none;
+}
+
+.headerNavItem a {
+  padding: 0.8rem;
+  color: #56585a;
+  font-weight: bold;
+  display: block;
+}
+.headerNavItem:hover {
+  color: #0aa8a7;
+  font-weight: bold;
+  transition: 0.4s;
+}
+.headerNavMenuWrap {
+  display: none;
+}
+
+/* TB 601px<=device<=1024px */
+@media screen and (max-width: 1024px) {
+  .pageTitle1 {
+    font-size: 3.6rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .pageTitle1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .headerWrap {
+    width: 96%;
+    height: 10.8rem;
+    margin-bottom: 0;
+  }
+  .pageTitle1 {
+    font-size: 2.4rem;
+  }
+  .headerSecondWrap {
+    height: 0;
+  }
+
+  .headerNav {
+    position: relative;
+    width: 24%;
+    min-width: 16rem;
+    position: fixed;
+    margin-right: 0;
+    top: 0;
+    right: 0;
+    z-index: 30;
+  }
+
+  .headerNavItem,
+  .headerNavItem a {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .headerNavItem a {
+    font-size: 1.6rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    display: block;
+  }
+  .headerNavItem a:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .headerNavMenu {
+    width: 4.8rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  .headerNavMenuWrap {
+    position: absolute;
+    top: 1.6rem;
+    right: 0;
+    display: block;
+    transform: rotate(0deg);
+    z-index: 30;
+    transition: 0.6s;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 0.4rem;
+  }
+  .headerNavMenuWrap.active {
+    transform: rotate(-90deg);
+    opacity: 0.3;
+    transition: 0.6s;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .headerNavList {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    padding-top: 3.2rem;
+    margin-top: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.4rem;
+    opacity: 0;
+    transition: 0.8s;
+    pointer-events: none;
+  }
+  .headerNavList.active {
+    opacity: 1;
+    height: 100vh;
+    transition: 0.8s;
+    pointer-events: all;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .headerWrap {
+    width: 100%;
+    margin-top: 0;
+  }
+  .pageTitleWrap {
+    padding-left: 0;
+  }
+  .pageTitle1 {
+    font-size: 2rem;
+  }
+  .headerNav {
+    width: 24%;
+  }
+  .headerNavItem a {
+    font-size: 1.4rem;
+  }
+}
+
+/* SP device<=375px */
+@media screen and (max-width: 375px) {
+  .pageTitle1 {
+    font-size: 1.8rem;
+  }
+  .headerNavItem a {
+    font-size: 1.2rem;
+  }
+}
+
+/* Base Main Area ************/
+.mainContainer {
+  position: relative;
+  width: 86%;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (max-width: 1200px) {
+  .mainContainer {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainContainer {
+    width: 94%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .mainContainer {
+    width: 100%;
+  }
+}
+.sectionBlock {
+  width: 100%;
+  margin-bottom: 3.2rem;
+}
+.sectionBlockTitleWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 8.4rem;
+  margin-bottom: 3.2rem;
+  text-align: center;
+}
+.sectionBlockTitle {
+  font-size: 4.8rem;
+  font-weight: bold;
+  width: auto;
+}
+@media screen and (max-width: 1024px) {
+  .sectionBlockTitleWrap {
+    margin-top: 6.4rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .sectionBlockTitleWrap {
+    margin-top: 4rem;
+  }
+  .sectionBlockTitle {
+    font-size: 3.2rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sectionBlockTitleWrap {
+    margin-top: 3.2rem;
+  }
+  .sectionBlockTitle {
+    font-size: 2.4rem;
+  }
+}
+
+/* Base Footer Area ************/
+.footerWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 0.1rem solid #cccccc;
+  padding-top: 4.8rem;
+}
+.footerInnerFirst {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.footerLogoWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  height: 12rem;
+  margin-right: 1.6rem;
+}
+.footerNavWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .footerNav ul li {
+    padding-left: 1.2rem;
+    padding-top: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footerNav ul li {
+    padding-left: 1.2rem;
+    padding-top: 0.4rem;
+  }
+}
+
+/* Base Other ************/
+.copyright {
+  font-size: 1rem;
+  color: #56585a;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+.copyright a {
+  color: #0aa8a7;
+}
+
+.pagetop {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 4rem;
+  bottom: 4rem;
+  width: 8rem;
+  height: 4.8rem;
+  color: #0aa8a7;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 2.4rem;
+  border: 0.1rem solid #0aa8a7;
+  background-color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: 0.4s;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 31;
+}
+@media screen and (max-width: 600px) {
+  .copyright {
+    padding-top: 1.6rem;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  .copyright {
+    padding-top: 0rem;
+    font-size: 0.8rem;
+  }
+  .pagetop {
+    width: 6.4rem;
+    height: 4rem;
+    right: 2.4rem;
+    bottom: 2.4rem;
+  }
+}
