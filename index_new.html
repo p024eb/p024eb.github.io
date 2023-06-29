@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dammy-title</title>
+    <!-- <title>
+      SegPath : The largest-scale datasets for the segmentation of cancer
+      histology images
+    </title> -->
+    <meta name="description" content="Dammy-description...." />
+    <!-- <meta
+      name="description"
+      content="SegPath is the largest-scale datasets for the segmentation of cancer histology images. Immunostaining with antibodies that recognize eight tissue/cell types yields datasets that are more accurate than those of conventional human annotations."
+    /> -->
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="author" content="Dammy-Author name" />
+    <!-- <meta name="author" content="Daisuke komura" /> -->
+    <meta
+      name="copyright"
+      content="© Department of Preventive Medicine, Graduate School of Medicine, The University of Tokyo"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- OG -->
+    <meta property="og:url" content="Dammy-URL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dammy-title" />
+    <meta property="og:description" content="Dammy-description" />
+    <meta property="og:site_name" content="Dammy-Site name" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="Dammy-image-path" />
+    <!-- <meta property="og:url" content="https://dakomura.github.io/SegPath/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Overview of SegPath" />
+    <meta property="og:description" content="Overview of SegPath" />
+    <meta property="og:site_name" content="Overview of SegPath" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:image"
+      content="https://dakomura.github.io/SegPath/images/overview.png"
+    /> -->
+
+    <link rel=icon href=./favicon.ico type=image/x-icon>
+
+    <link
+      href="./bootstrap-5.0.2-dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/parts.css" />
+    <link rel="stylesheet" href="./css/notice-banner.css" />
+    <style>
+      /* Nav Menu is hiddened */
+      .headerSecondWrap {
+        display: none;
+      }
+      @media screen and (max-width: 600px) {
+        .tabContents .contentsWrap.column3 .contentsItem.article {
+          width: calc((100% - 0.8rem * 2) / 1);
+        }
+      }
+    </style>
+  </head>
+  <body style="position: relative">
+    <!-- noticeBanner start -->
+    <div class="noticeBannerWrap">
+      <div class="noticeBanner" data-domain="" data-path="/" data-maxage="800">
+        <!-- <div class="noticeBannerWrap">
+      <div
+        class="noticeBanner"
+        data-domain="dakomura.github.io"
+        data-path="/SegPath"
+        data-maxage="604800"
+      > -->
+        <div class="annoMsgWrap">
+          <p class="annoMsg">
+            This site uses cookies used by Google Analytics to offer you a
+            better browsing experience. To accept all cookies, select [Accept]
+            button. If you do not accept all cookies and accept essential
+            cookies, select the [Reject] button.
+          </p>
+        </div>
+        <div class="buttonListWrap">
+          <button id="setAcceptButton">Accept</button>
+          <button id="setRejectButton">Reject</button>
+          <!-- <button id="setPrivacyButton">Setting</button> -->
+          <div class="closeButtonWrap">
+            <button class="closeButton" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- noticeBanner end -->
+    <div class="wrapper">
+      <header>
+        <div class="headerWrap">
+          <div class="headerFirstWrap">
+            <div class="headerLogoWrap">
+              <img class="siteLogo" src="./assets/logo.png" />
+            </div>
+            <div class="pageTitleWrap">
+              <h1 class="pageTitle1"><b>PLISM</b> : Dataset Description</h1>
+            </div>
+          </div>
+          <div class="headerSecondWrap">
+            <nav class="headerNav">
+              <div class="headerNavMenuWrap">
+                <img
+                  src="./assets/list.svg"
+                  class="headerNavMenu"
+                  alt="menu button"
+                />
+              </div>
+              <ul class="headerNavList">
+                <li class="headerNavItem"><a>Home</a></li>
+                <li class="headerNavItem"><a>Publications</a></li>
+                <li class="headerNavItem"><a>Datasets</a></li>
+                <li class="headerNavItem"><a>Group</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="mainContainer">
+          <!-- Overview -->
+          <!-- <div class="sectionBlock">
+            <div class="sectionBlockTitleWrap">
+              <h2 class="sectionBlockTitle">Overview</h2>
+            </div>
+            <div class="overviewImageWrap">
+              <div
+                id="imageSliderCaptions"
+                class="carousel slide carousel-fade"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="4000">
+                    <img
+                      src="./images/overview.png"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="sectionText">
+              SegPath is created for the semantic segmentation of H&E images for
+              eight major cell types in tumor tissue.
+            </p>
+
+            <p class="sectionText">
+              The dataset is constructed by immunofluorescence restaing. First,
+              sections were stained with H&E. They were then digitized using a
+              slide scanner to create whole slide images (WSIs). After
+              destaining the H&E-stained sections with alcohol and autoclave
+              processing, IF and 4',6-diamidino-2-phenylindole dihydrochloride
+              (DAPI) nuclear staining were performed using antibodies that
+              specifically recognized each cell type. The slides were then
+              digitized again. Multiresolution rigid registration between the
+              H&E and IF images was performed to ensure that the haematoxylin
+              component in the H&E images and DAPI in the IF images, both
+              recognizing nuclei, had been aligned.
+            </p>
+          </div> -->
+          <!-- Tab Gallery (use AutoSetupImagesJS) Start -->
+          <div class="sectionBlock">
+            <div class="sectionBlockTitleWrap">
+              <h2 class="sectionBlockTitle">Large-scale histological image dataset toward stain and device-agnostic models</h2>
+            </div>
+            <img
+            src="./images/PLISM_logo.png"
+            alt=""
+          />
+            <!-- 画像の説明テキスト&リスト -->
+            <div
+              class="sectionText"
+              style="
+                padding-left: 1.6rem;
+                padding-right: 1.6rem;
+                padding-top: 1.2rem;
+                margin-bottom: 1.2rem;
+              "
+            >
+              <ul>
+                <li>
+                  Color and texture in digital pathology images are affected by H&E stain conditions (e.g. Harris or Carrazi) and digitalization devices (e.g. slide scanners or smartphones), which cause inter-institutional domain shifts.
+                </li>
+                <li>PLISM is the first group-wised pathological image dataset that encompasses diverse tissue types stained under 13 H&E conditions, with multiple imaging media, including smartphones (7 scanners and 6 smartphones).
+                </li>
+                <li>
+                  PLSIM dataset was created for the evaluation of AI models’ robustness to domain shifts and development of robust AI models to them.
+                </li>
+                <li>Totally, the PLISM dataset is resulted in the creation of two subsets;
+                  <ul>
+                    <li><b>1.	PLISM-sm,</b> where smartphone images were used as queries to create image groups for each staining condition corresponding to each tile image.</li>
+                    <li><b>2.	PLISM-wsi,</b> consisting of image groups for all staining conditions between WSIs for each tile image.</li>
+                  </ul>
+                </li>
+                
+                <li>Paper Link: Coming Soon!</li>
+              </ul>
+            </div>
+
+          <!-- Counterpart -->
+          <div class="sectionBlock2" style="margin-top: 0rem; margin-bottom: 0rem">
+            <div class="sectionBlockTitleWrap2">
+              
+            </div>
+            <div id="tabContents3" class="tabContainer">
+              <div class="tabContentsWrap">
+                <div class="tabContents active">
+                  <div class="contentsWrap column1">
+                    <div class="contentsItem article">
+                      <div class="articleImageWrap">
+                        <img
+                          class="articleImage"
+                          src="./images/graph/counterpart.png"
+                          alt=""
+                          
+                        />
+                      </div>
+
+                      <div class="articleTitle">
+                        <a> Correspondence tables for each device. </a>
+                      </div>
+                      <div class="articleText">
+                        Left) Abbreviations for whole slide scanner vendors and the devices that correspond to each vendor. Right) Abbreviations for smartphone OS types and corresponding smartphones.
+                      </div>
+                     
+                    </div>
+
+                    <div class="articleImageWrap">
+                      <img
+                        class="articleImage"
+                        src="./images/graph/stain_condition.png"
+                        alt=""
+                        
+                      />
+                    </div>
+
+                    <div class="articleTitle">
+                      <a> H&E Staining Conditions</a>
+                    </div>
+                    <div class="articleText">
+                      From the 64 staining conditions, we selected 12 types for each hematoxylin solvent. Mayor represents the reference staining condition. Detailed procedures are described in the Methods section. 
+                    </div>
+                    
+                  </div>
+                   
+
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+            <!--<p class="sectionText">
+              A csv file contains the following information:<br />
+              Dammy text dammy text dammy text dammy text dammy text dammy text
+              dammy text dammy text dammy text dammy text dammy text dammy text
+              dammy text dammy text dammy text dammy text dammy text dammy text
+              dammy text dammy text dammy text dammy text dammy text dammy text
+              dammy text dammy text dammy text dammy text dammy text.<br />
+              Dammy text dammy text dammy text dammy text dammy text dammy text
+              dammy text dammy text dammy text dammy text dammy text.<br />
+              dammy text dammy text dammy text dammy text dammy text.
+            </p>-->
+            <!-- 複数のタブギャラリーを設置する場合は id="tabContents0" の数値を0,1,2,3と変える デフォルトは最大4つのタブギャラリー設置可能 -->
+            <!-- 自動読み込みは複数のタブギャラリーでも使用可能 -->
+            <div class="sectionBlock2" style="margin-top: 0rem">
+              <div class="sectionBlockTitleWrap2">
+                <h5 class="sectionBlockTitle">Sample tile images</h3>
+              </div>
+            <div
+              id="tabContents0"
+              class="tabContainer autoSetupImages"
+              style="margin-top: 4.8rem"
+            >
+              <!-- tabMenuWrap Start -->
+              <div class="tabMenuWrap" style="flex-wrap: wrap">
+                <!-- タブメニュー -->
+                <div class="tabMenuItem active">AT2</div>
+                <div class="tabMenuItem">GT450</div>
+                <div class="tabMenuItem">P</div>
+                <div class="tabMenuItem">S210</div>
+                <div class="tabMenuItem">S360</div>
+                <div class="tabMenuItem">S60</div>
+                <div class="tabMenuItem">SQ</div>
+                <div class="tabMenuItem">galaxy</div>
+                <div class="tabMenuItem ">iphone6</div>
+                <div class="tabMenuItem">iphone13</div>
+                <div class="tabMenuItem">itel</div>
+                <div class="tabMenuItem">moto</div>
+                <div class="tabMenuItem">redmi</div>
+              
+                
+        
+              </div>
+              <!-- tabMenuWrap End -->
+              <!-- tabContentsWrap Start -->
+              <div class="tabContentsWrap">
+                <div class="tabContents active">
+                  <div class="articleLargeTitle">PLISM-sm(AT2)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing) :</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(GT450)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing) :</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(P)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(S210)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(S360)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(S60)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(SQ)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(galaxy)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(iphone6)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(iphone13)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(itel)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(motorola)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-sm(redmi)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">title</div>
+                  <div class="articleLargeText">
+                    <span>DL link :</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                 
+                  <div class="contentsWrap column8"></div>
+                </div>
+              </div>
+              <!-- tabContentsWrap End -->
+            </div>
+            <div
+              id="tabContents1"
+              class="tabContainer autoSetupImages"
+              style="margin-top: 8rem"
+            >
+              <!-- tabMenuWrap Start -->
+              <div class="tabMenuWrap" style="flex-wrap: wrap">
+                <!-- タブメニュー -->
+                <div class="tabMenuItem active">AT2</div>
+                <div class="tabMenuItem">GT450</div>
+                <div class="tabMenuItem">P</div>
+                <div class="tabMenuItem">S210</div>
+                <div class="tabMenuItem">S360</div>
+                <div class="tabMenuItem">S60</div>
+                <div class="tabMenuItem">SQ</div>
+  
+              </div>
+              <!-- tabMenuWrap End -->
+              <!-- tabContentsWrap Start -->
+              <div class="tabContentsWrap">
+                <div class="tabContents active">
+                  <div class="articleLargeTitle">PLISM-wsi(GIVH_AT2)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8">
+                    <!-- 
+                      (要)
+                      この中に画像が配置されていきます
+                      手打ちで行う場合は、
+                      <div class="contentsItem article">
+                        <div class="articleImageWrap">
+                          <img class="articleImage" src="./images/LM-dammy48/iphone6/7917_29043_10671_32583.png" alt="iphone6-image-0">
+                        </div>
+                      </div>
+                      <div class="contentsItem article">
+                        <div class="articleImageWrap">
+                          <img class="articleImage" src="./images/LM-dammy48/iphone6/7917_29043_10671_32583.png" alt="iphone6-image-0">
+                        </div>
+                      </div>
+                      合計46枚分 <div class="contentsItem article">〜</div>を記載すれば画像の自動配置と同様の表示になります
+                      (この作業はTab Galleryのタブ(デバイス)の数だけ必要になります)
+                  --></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(GIVH_GT450)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(GIVH_P)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(GIVH_S210)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(GIVH_S360)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(GIVH_S60)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(GIVH_SQ)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(SQ)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(galaxy)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(iphone6)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">PLISM-wsi(iphone13)</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">title</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">title</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+                <div class="tabContents">
+                  <div class="articleLargeTitle">title</div>
+                  <div class="articleLargeText">
+                    <span>DL link(Preparing):</span>
+                    <a class="articleLargeTextLink" href="" target="_blank"
+                      >Link URL</a
+                    >
+                  </div>
+                  <div class="contentsWrap column8"></div>
+                </div>
+              </div>
+              <!-- tabContentsWrap End -->
+            <!--</div> -->
+          <!--</div> -->
+
+          </div>
+            <div id="tabContents2"
+          class="tabContainer autoSetupImages"
+          style="margin-top: 8rem"
+        >
+          <!-- tabMenuWrap Start -->
+          <div class="tabMenuWrap" style="flex-wrap: wrap">
+            <!-- タブメニュー -->
+            <div class="tabMenuItem active">GIV</div>
+            <div class="tabMenuItem">GIVH</div>
+            <div class="tabMenuItem">GM</div>
+            <div class="tabMenuItem">GMH</div>
+            <div class="tabMenuItem">GV</div>
+            <div class="tabMenuItem">GVH</div>
+            <div class="tabMenuItem">HR</div>
+            <div class="tabMenuItem">HRH</div>
+            <div class="tabMenuItem">KR</div>
+            <div class="tabMenuItem">KRH</div>
+            <div class="tabMenuItem">LM</div>
+            <div class="tabMenuItem">LMH</div>
+            <div class="tabMenuItem">MY</div>
+
+          </div>
+          <!-- tabMenuWrap End -->
+          <!-- tabContentsWrap Start -->
+          <div class="tabContentsWrap">
+            <div class="tabContents active">
+              <div class="articleLargeTitle">PLISM-wsi(GIV_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8">
+                <!-- 
+                  (要)
+                  この中に画像が配置されていきます
+                  手打ちで行う場合は、
+                  <div class="contentsItem article">
+                    <div class="articleImageWrap">
+                      <img class="articleImage" src="./images/LM-dammy48/iphone6/7917_29043_10671_32583.png" alt="iphone6-image-0">
+                    </div>
+                  </div>
+                  <div class="contentsItem article">
+                    <div class="articleImageWrap">
+                      <img class="articleImage" src="./images/LM-dammy48/iphone6/7917_29043_10671_32583.png" alt="iphone6-image-0">
+                    </div>
+                  </div>
+                  合計46枚分 <div class="contentsItem article">〜</div>を記載すれば画像の自動配置と同様の表示になります
+                  (この作業はTab Galleryのタブ(デバイス)の数だけ必要になります)
+              --></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(GIVH_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(GM_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(GMH_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(GV_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(GVH_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(HR_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(HRH_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(KR_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(KRH_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(LM_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(LMH_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">PLISM-wsi(MY_AT2)</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+            <div class="tabContents">
+              <div class="articleLargeTitle">title</div>
+              <div class="articleLargeText">
+                <span>DL link(Preparing):</span>
+                <a class="articleLargeTextLink" href="" target="_blank"
+                  >Link URL</a
+                >
+              </div>
+              <div class="contentsWrap column8"></div>
+            </div>
+          </div>
+          <!-- tabContentsWrap End -->
+        </div>
+      </div>
+    </div>
+
+          <!-- Worlflow&Tissue types -->
+          <div class="sectionBlock" style="margin-top: 8rem;">
+            <div class="sectionBlockTitleWrap">
+              <h2 class="sectionBlockTitle">Workflow & Tissue types</h2>
+            </div>
+            <div id="tabContents3" class="tabContainer">
+              <div class="tabContentsWrap">
+                <div class="tabContents active">
+                  <div class="contentsWrap column2">
+                    <div class="contentsItem article">
+                      <div class="articleImageWrap">
+                        <img
+                          class="articleImage"
+                          src="./images/graph/workflow.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="articleTitle">
+                        Workflow from slide digitalization to image-registation.
+                      </div>
+                      <!-- <div class="articleText">The PLISM-sm subsets contain approximately 60 thousand image tiles in total.</div>-->
+                    </div>
+                    <div class="contentsItem article">
+                      <div class="articleImageWrap">
+                        <img
+                          class="articleImage"
+                          src="./images/graph/tissue.png"
+                          alt=""
+                        />
+                      </div>
+                      <div class="articleTitle">
+                        <a> Tissue types included in TMA specimens. </a>
+                      </div>
+                      <div class="articleText">
+                        a. Adenocarcinoma. b. Neuroendocrine carcinoma. c. Squamous cell carcinoma. d. Mucinous carcinoma. e. Gastrointestinal stromal tumor. f. Liver cancer. g. Epstein-Barr virus-positive gastric cancer. h. Salivary gland. i. Clear cell carcinoma. j. Dedifferentiated liposarcoma. 
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Graph -->
+          <div class="sectionBlock" style="margin-top: 8rem">
+            <div class="sectionBlockTitleWrap">
+              <h2 class="sectionBlockTitle">Breakdown of images by tissue</h2>
+            </div>
+            <div id="tabContents3" class="tabContainer">
+              <div class="tabContentsWrap">
+                <div class="tabContents active">
+                  <div class="contentsWrap column2">
+                    <div class="contentsItem article">
+                      <div class="articleImageWrap" >
+                        <img
+                          class="articleImage"
+                          src="./images/graph/smt_group_tissue_paper.png"
+                          alt=""
+                          
+                        />
+                      </div>
+                      <div class="articleTitle">
+                        # of image tiles from PLISM-sm per tissue type.
+                      </div>
+                      <div class="articleText">The PLISM-sm subsets contain approximately 60 thousand image tiles in total.</div>
+                    </div>
+                    <div class="contentsItem article">
+                      <div class="articleImageWrap">
+                        <img
+                          class="articleImage"
+                          src="./images/graph/wsi_group_tissue_paper.png"
+                          alt=""
+                          
+                        />
+                      </div>
+                      <div class="articleTitle">
+                        <a> # of image tiles from PLISM-wsi per tissue type. </a>
+                      </div>
+                      <div class="articleText">
+                        The PLISM-wsi subsets contain approximately 0.3 million image tiles in total.
+                      </div>
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Dataset organization -->
+          <div class="sectionBlock", style="text-align: center;">
+            <div class="sectionBlockTitleWrap" style="margin-top: 0rem">
+              <h2 class="sectionBlockTitle">Dataset organization</h2>
+            </div>
+            <div style="display: inline-block; text-align: left;">
+            <p class="sectionText">
+              A Tar.gz file contains the following files:<br />
+              - H&E image file from PLISM-sm subset:
+              (stain_name)/(device_name)/(top_left_x)_(top_left_y)_(right_lower_x)_(right_lower_y).png <br />
+              - H&E image file from PLISM-wsi:
+              (stain_name)_(device_name)/(stain_name)_(device_name)_(top_left_x)_(top_left_y).png<br />
+              Each image file is 512x512 px.<br />
+
+            </p>
+            <p class="sectionText">
+              A csv file contains the following information:<br />
+              -	<b>Tissue Type:</b> The specific type of human tissue represented in the image, chosen from among 46 possible tissue types.<br />
+              -	<b>Stain Type:</b> The specific staining condition applied to the image, chosen from among 13 possible conditions.<br />
+              -	<b>Device Type:</b> The specific type of imaging device used to capture the image, chosen from among 13 possible device types.<br />
+              -	<b>Coordinate (PLISM-sm):</b> The xy coordinates of the top left and bottom right corners of each image (e.g., 1000_500_0_0).<br />
+              -	<b>Coordinate (PLISM-wsi):</b> The xy coordinates of the top left of each image (e.g., 1000_500).<br />
+              -	<b>Image Path:</b> The relative path to each image.
+
+ 
+            </p>
+          </div>
+          </div>
+          <!-- Licenses -->
+          <div class="sectionBlock", style="text-align: center;">
+            <div class="sectionBlockTitleWrap">
+              <h2 class="sectionBlockTitle">Licenses</h2>
+            </div>
+            <div style="display: inline-block; text-align: left;">
+            <p class="sectionText">
+              This work is licensed under a Creative Commons
+              Attribution-NonCommercial-ShareAlike 4.0 International (<b
+                >CC-BY-NC-SA 4.0</b
+              >)<br />
+              For non-commercial use, please use the dataset under
+              CC-BY-NC-SA.<br />
+              If you would like to use the dataset for commercial purposes,
+              please contact us (ochi-mieko1227@g.ecc.u-tokyo.ac.jp).<br />
+            </p>
+          </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="footerWrap">
+          <div class="footerInnerFirst">
+            <div class="footerLogoWrap">
+              <img class="siteLogo" src="./assets/logo.png" />
+            </div>
+            <div class="footerNavWrap">
+              <nav class="footerNav">
+                <ul>
+                  <li><a href="https://plaza.umin.ac.jp/prm/" target="_blank"
+                    >About Us</a
+                    ></li>
+                  <li><a href="https://plaza.umin.ac.jp/prm/?page_id=58" target="_blank">Member</a></li>
+                  <li><a href="https://plaza.umin.ac.jp/prm/?page_id=67" target="_blank">Research</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <small class="copyright">
+            Copyright © <span class="nowDateYear">2023</span>,
+            <a href="https://plaza.umin.ac.jp/prm/" target="_blank"
+              >Department of Preventive Medicine, Graduate School of Medicine,
+              The University of Tokyo</a
+            >. All rights reserved.
+          </small>
+        </div>
+      </footer>
+      <div class="pagetop">Top</div>
+    </div>
+
+    <script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/base.js"></script>
+    <script type="text/javascript">
+      // autoImagesLoader.js Setting
+      // list for output Images
+      // const target_img_list = [
+      //   "1831_70014_4725_73528.png",
+      //   "7185_72000_10040_75777.png",
+      //   "6022_31720_8842_35309.png",
+      //   "6808_66932_9754_70615.png",
+      //   "7142_69897_9882_73488.png",
+      //   "1925_72611_4765_76271.png",
+      //   "4640_34774_7574_38300.png",
+      //   "5597_57212_8422_60764.png",
+      // ];
+      const target_img_list = [
+        // Tab Grallery First
+        [
+        '18388_46473_20714_49759.png',
+        '63262_5011_65917_8537.png',
+        '39185_9105_42100_12754.png',
+        '78485_1668_81202_5105.png',
+        '64602_48136_67282_51602.png',
+        '10874_31769_13571_35254.png',
+        '8965_29434_11714_32986.png',
+        '43020_55346_44740_59112.png',
+        '58660_39206_61428_42709.png',
+        '78497_45765_81282_49305.png',
+        '5942_21170_8854_24664.png',
+        '2354_69940_4922_73285.png',
+        '102677_46153_105471_49682.png',
+        '90028_17470_92597_20687.png',
+        '51888_30577_54611_34066.png',
+        '2560_68880_5377_70880.png'
+          //"9020_72320_11837_75911.png",
+          //"4640_34774_7574_38300.png",
+          //"7965_35189_10828_38814.png",
+          //"17797_3500_20991_7397.png",
+          //"9782_70280_12760_73805.png",
+          //"8308_55655_11137_59175.png",
+          //"8254_43299_11122_46933.png",
+          // "8322_41328_11234_44230.png",
+          // "5597_57212_8422_60764.png",
+        ],
+        // Tab Grallery Second
+        [
+        '103424_19456.png',
+        '109568_77824.png',
+        '18432_21504.png',
+        '20480_35840.png',
+        '21504_63488.png',
+        '24576_45056.png',
+        '26624_32768.png',
+        '32768_20480.png',
+        '4096_5120.png',
+        '50176_75776.png',
+        '5120_57344.png',
+        '54272_29696.png',
+        '64512_46080.png',
+        '70656_47104.png',
+        '77824_44032.png',
+        '81920_2048.png'
+        ],
+
+        [
+        '103424_19456.png',
+        '109568_77824.png',
+        '18432_21504.png',
+        '20480_35840.png',
+        '21504_63488.png',
+        '24576_45056.png',
+        '26624_32768.png',
+        '32768_20480.png',
+        '4096_5120.png',
+        '50176_75776.png',
+        '5120_57344.png',
+        '54272_29696.png',
+        '64512_46080.png',
+        '70656_47104.png',
+        '77824_44032.png',
+        '81920_2048.png'
+        ],
+      ];
+
+      // list for output Menus
+      // const target_device_list = ["GT450", "iphone13", "AT2"];
+      const target_device_list = [
+        // Tab Grallery First
+        [
+          "AT2",
+          "GT450",
+          "P",
+          "S210",
+          "S360",
+          "S60",
+          "SQ",
+          "galaxy",
+          "iphone13",
+          "iphone6",
+          "itel",
+          "moto",
+          "redmi",
+          
+         
+        ],
+        // Tab Grallery Second
+        [
+          "AT2",
+          "GT450",
+          "P",
+          "S210",
+          "S360",
+          "S60",
+          "SQ",
+        ],
+
+        // Tab Grallery third
+          [
+          "GIV",
+          "GIVH",
+          "GM",
+          "GMH",
+          "GV",
+          "GVH",
+          "HR",
+          "HRH",
+          "KR",
+          "KRH",
+          "LM",
+          "LMH",
+          "MY"
+        ],
+      ];
+
+      //Base Image folder path
+      // const target_images_folder = "./images/LM-dammy16/";
+      // const target_images_folder = [
+      //   "./images/LM-dammy48/",
+      //   "./images/LM-dammy48/",
+      // ];
+      const target_images_folder = [
+        // Tab Grallery First
+        "./images/for_homepage_sm_device/",
+        // Tab Grallery Second
+        "./images/for_homepage_wsi_device/",
+        // Tab Grallery Third  
+        "./images/for_homepage_wsi_stain/",
+      ];
+    </script>
+    <script src="./js/auto-setup-images.js"></script>
+    <!-- googleのタグなどは notice-bannar.jsより前に配置してください-->
+    <script src="./js/notice-bannar.js"></script>
+  </body>
+</html>
