@@ -243,22 +243,10 @@
   margin-bottom: 3.2rem;
 }
 
-.sectionBlock1 {
-  width: 100%;
-  margin-bottom: 3.2rem;
-  justify-content: center;
-}
-
 .sectionBlock2 {
   width: 100%;
   margin-bottom: 0.2rem;
 }
-
-.sectionBlock3 {
-  width: 100%;
-  margin-bottom: 3.0rem;
-}
-
 .sectionBlockTitleWrap {
   width: 100%;
   display: flex;
