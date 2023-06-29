@@ -147,6 +147,7 @@
 .tabContents .contentsWrap.column1 .contentsItem.article {
   width: calc((100% - 0.8rem * 2) / 1);
 }
+
 .tabContents .contentsWrap.column2 .contentsItem.article {
   width: calc((100% - 0.8rem * 4) / 2);
 }
